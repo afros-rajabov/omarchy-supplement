@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install all packages in order
-./install-zsh.sh
+./install-fish.sh
 ./install-asdf.sh
 ./install-alacritty.sh
 ./install-tmux.sh
