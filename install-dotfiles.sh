@@ -5,36 +5,37 @@ REPO_URL="https://github.com/afros-rajabov/dotfiles"
 REPO_NAME="dotfiles"
 
 is_stow_installed() {
-  pacman -Qi "stow" &> /dev/null
+	pacman -Qi "stow" &>/dev/null
 }
 
 if ! is_stow_installed; then
-  echo "Install stow first"
-  exit 1
+	echo "Install stow first"
+	exit 1
 fi
 
 cd ~
 
 # Check if the repository already exists
 if [ -d "$REPO_NAME" ]; then
-  echo "Repository '$REPO_NAME' already exists. Skipping clone"
+	echo "Repository '$REPO_NAME' already exists. Skipping clone"
 else
-  git clone "$REPO_URL"
+	git clone "$REPO_URL"
 fi
 
 # Check if the clone was successful
 if [ $? -eq 0 ]; then
-  echo "removing old configs"
-  rm -rf ~/.config/nvim ~/.config/starship.toml ~/.local/share/nvim/ ~/.cache/nvim/ ~/.config/alacritty/alacritty.toml ~/.config/fish/config.fish
+	echo "removing old configs"
+	rm -rf ~/.config/nvim ~/.config/starship.toml ~/.local/share/nvim/ ~/.cache/nvim/ ~/.config/alacritty/alacritty.toml ~/.config/fish/config.fish ~/.config/ghostty/config ~/.config/kitty/kitty.conf
 
-  cd "$REPO_NAME"
-  stow fish
-  stow alacritty
-  stow tmux
-  stow linux-nvim
-  stow starship
+	cd "$REPO_NAME"
+	stow alacritty
+	stow ghostty
+	stow kitty
+	stow fish
+	stow starship
+	stow tmux
+	stow linux-nvim
 else
-  echo "Failed to clone the repository."
-  exit 1
+	echo "Failed to clone the repository."
+	exit 1
 fi
-
