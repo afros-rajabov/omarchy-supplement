@@ -28,9 +28,9 @@ if [ $? -eq 0 ]; then
 	rm -rf ~/.config/nvim ~/.config/starship.toml ~/.local/share/nvim/ ~/.cache/nvim/ ~/.config/alacritty/alacritty.toml ~/.config/fish/config.fish ~/.config/ghostty/config ~/.config/kitty/kitty.conf
 
 	cd "$REPO_NAME"
-	stow alacritty
+	# stow alacritty
+  # stow kitty
 	stow ghostty
-	stow kitty
 	stow fish
 	stow starship
 	stow tmux
