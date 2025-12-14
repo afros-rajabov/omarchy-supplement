@@ -29,7 +29,7 @@ if [ $? -eq 0 ]; then
 
 	cd "$REPO_NAME"
 	# stow alacritty
-  # stow kitty
+	# stow kitty
 	stow ghostty
 	stow fish
 	stow starship
