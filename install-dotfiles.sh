@@ -24,16 +24,25 @@ fi
 
 # Check if the clone was successful
 if [ $? -eq 0 ]; then
-	echo "removing old configs"
-	rm -rf ~/.config/nvim ~/.config/starship.toml ~/.local/share/nvim/ ~/.cache/nvim/ ~/.config/alacritty/alacritty.toml ~/.config/fish/config.fish ~/.config/ghostty/config ~/.config/kitty/kitty.conf
+	echo "Removing old configs"
+	rm -rf ~/.config/nvim \
+		~/.cache/nvim/ \
+		~/.local/share/nvim/ \
+		~/.config/starship.toml \
+		~/.config/alacritty/alacritty.toml \
+		~/.config/fish/config.fish \
+		~/.config/ghostty/config \
+		~/.config/kitty/kitty.conf \
+		~/.config/yazi
 
 	cd "$REPO_NAME"
 	# stow alacritty
-	# stow kitty
+	stow kitty
 	stow ghostty
 	stow fish
 	stow starship
 	stow tmux
+	stow yazi
 	stow linux-nvim
 else
 	echo "Failed to clone the repository."

@@ -7,6 +7,7 @@
 ./install-ghostty.sh
 ./install-kitty.sh
 ./install-tmux.sh
+./install-yazi.sh
 ./install-stow.sh
 ./install-dotfiles.sh
 ./install-hyprland-overrides.sh
